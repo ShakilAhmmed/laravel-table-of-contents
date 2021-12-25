@@ -19,19 +19,19 @@ class ContentsFromHeadersGenerator
             if ($currentLevel === 0) {
                 $newArr[] = $headers[$i];
             } elseif ($currentLevel === 1) {
-                $newArr[$i - $level1]['childs'][] = $headers[$i];
+                $newArr[$i - $level1]['children'][] = $headers[$i];
             } elseif ($currentLevel === 2) {
-                $childs =& $newArr[$i - $level1]['childs'];
-                $childs[count($childs) - 1]['childs'][] = $headers[$i];
+                $childs =& $newArr[$i - $level1]['children'];
+                $childs[count($childs) - 1]['children'][] = $headers[$i];
             } elseif ($currentLevel === 3) {
-                $childs =& $newArr[$i - $level1]['childs'];
-                $count = count($childs[count($childs) - 1]['childs']);
-                $childs[count($childs) - 1]['childs'][$count - 1]['childs'][] = $headers[$i];
+                $childs =& $newArr[$i - $level1]['children'];
+                $count = count($childs[count($childs) - 1]['children']);
+                $childs[count($childs) - 1]['children'][$count - 1]['children'][] = $headers[$i];
             } elseif ($currentLevel === 4) {
-                $childs =& $newArr[$i - $level1]['childs'];
-                $subChilds =& $childs[count($childs) - 1]['childs'];
-                $subChilds1 =& $subChilds[count($subChilds) - 1]['childs'];
-                $subChilds1[count($subChilds1) - 1]['childs'][] = $headers[$i];
+                $childs =& $newArr[$i - $level1]['children'];
+                $subChilds =& $childs[count($childs) - 1]['children'];
+                $subChilds1 =& $subChilds[count($subChilds) - 1]['children'];
+                $subChilds1[count($subChilds1) - 1]['children'][] = $headers[$i];
             }
             $level1 = $currentLevel > 0 ? $level1 + 1 : 1;
         }
