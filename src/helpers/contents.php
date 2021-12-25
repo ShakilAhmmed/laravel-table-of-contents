@@ -1,19 +1,15 @@
 <?php
 
 if (!function_exists('getContentsHTMLTemplate')) {
-    function getContentsHTMLTemplate($contents): string
+    function getContentsHTMLTemplate($contents)
     {
-
-        $contentsAsHTML = '';
-        $contentsAsHTML .= '<ul>';
+        echo '<ul>';
         foreach ($contents as $header) {
-            $contentsAsHTML .= '<li><a href="#">' . $header['header'] ?? '' . '</a></li>';
+            echo '<li><a href="#">' . $header['header'] . '</a></li>';
             if (isset($header['childs'])) {
                 getContentsHTMLTemplate($header['childs']);
             }
         }
-        $contentsAsHTML .= '</ul>';
-
-        return $contentsAsHTML;
+        echo '</ul>';
     }
 }

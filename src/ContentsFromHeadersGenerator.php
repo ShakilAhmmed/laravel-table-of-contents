@@ -10,7 +10,7 @@ class ContentsFromHeadersGenerator
      * @param array $headers
      * @return array
      */
-    public function generateFromHeaders(array $headers)
+    public function generateFromHeaders(array $headers): array
     {
         $newArr = [];
         $level1 = 1;
