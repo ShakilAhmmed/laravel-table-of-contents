@@ -4,7 +4,7 @@ namespace ShakilAhmmed\TableOfContents;
 
 class Contents
 {
-    private $tags = ['h1','h2', 'h3', 'h4', 'h5', 'h6'];
+    private $tags = ['h1', 'h2', 'h3', 'h4', 'h5', 'h6'];
     private $minLength = 1000;
     private $text = '';
 
@@ -19,7 +19,7 @@ class Contents
         $this->textHandler = new TextHandler();
     }
 
-    public function fromText(string $text) : self
+    public function fromText(string $text): self
     {
         $this->text = $text;
         return $this;
@@ -30,7 +30,7 @@ class Contents
      * unhandled text if text's length lower than minLength.
      * @return string
      */
-    public function getHandledText() : string
+    public function getHandledText(): string
     {
         return $this->textHandler->getProcessedText($this->text, $this->tags, $this->minLength);
     }
@@ -39,13 +39,13 @@ class Contents
      * Generates TableOfContents in multi-demensional array.
      * @return array
      */
-    public function getContentsArray() : array
+    public function getContentsArray(): array
     {
         $headers = $this->textHandler->getHeadersFromTextByTags($this->text, $this->tags, $this->minLength);
         return $headers ? $this->contentsGenerator->generateFromHeaders($headers) : [];
     }
 
-    public function setTags(array $tags) : self
+    public function setTags(array $tags): self
     {
         if (!empty($tags)) {
             $this->tags = $this->tagsValidator->validate($tags);
@@ -53,9 +53,14 @@ class Contents
         return $this;
     }
 
-    public function setMinLength(int $length) : self
+    public function setMinLength(int $length): self
     {
         $this->minLength = $length;
         return $this;
+    }
+
+    public function getContentsAsHTML($contents): string
+    {
+        return getContentsHTMLTemplate($contents);
     }
 }
