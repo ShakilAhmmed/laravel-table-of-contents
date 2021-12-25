@@ -22,6 +22,7 @@ class Contents
     public function fromText(string $text): self
     {
         $this->text = $text;
+        $this->minLength = strlen($text);
         return $this;
     }
 
