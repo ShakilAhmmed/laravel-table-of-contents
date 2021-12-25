@@ -1,13 +1,13 @@
 <?php
 
-function getContentsHTMLTemplate($contents)
+function getContentsHTMLTemplate($contents, $listType = 'ul')
 {
-    echo '<ul>';
+    echo "<$listType>";
     foreach ($contents as $header) {
         echo '<li><a href="#">' . $header['header'] . '</a></li>';
         if (isset($header['children'])) {
-            getContentsHTMLTemplate($header['children']);
+            getContentsHTMLTemplate($header['children'], $listType);
         }
     }
-    echo '</ul>';
+    echo "</$listType>";
 }
