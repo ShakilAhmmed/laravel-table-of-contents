@@ -1,0 +1,62 @@
+{
+  "name": "shakil-ahmmed/laravel-table-of-contents",
+  "description": "Table of contents generator Laravel package",
+  "keywords": [
+    "laravel",
+    "laravel-contents",
+    "table-of-contents",
+    "contents",
+    "toc",
+    "wiki-like-contents"
+  ],
+  "authors": [
+    {
+      "name": "ShakilAhmmed",
+      "email": "shakilfci461@gmail.com",
+      "role": "Developer"
+    },
+    {
+      "name": "AzimSabbir",
+      "email": "sabbir@gmail.com",
+      "role": "Developer"
+    },
+    {
+      "name": "Tanvir",
+      "email": "sabbir@gmail.com",
+      "role": "Developer"
+    },
+    {
+      "name": "Shawon",
+      "email": "mdshahidul3244@gmail.com",
+      "role": "Developer"
+    }
+  ],
+  "license": "MIT",
+  "autoload": {
+    "psr-4": {
+      "ShakilAhmmed\\TableOfContents\\": "src/"
+    },
+    "files": [
+      "src/helpers/contents.php"
+    ]
+  },
+  "autoload-dev": {
+    "psr-4": {
+      "ShakilAhmmed\\TableOfContents\\Tests\\": "tests"
+    }
+  },
+  "require-dev": {
+    "phpunit/phpunit": "^6.4"
+  },
+  "extra": {
+    "laravel": {
+      "providers": [
+        "ShakilAhmmed\\TableOfContents\\TableOfContentsServiceProvider"
+      ],
+      "aliases": {
+        "Contents": "ShakilAhmmed\\TableOfContents\\TableOfContentsFacade"
+      }
+    }
+  },
+  "minimum-stability": "dev"
+}
