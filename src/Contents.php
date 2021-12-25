@@ -60,8 +60,8 @@ class Contents
         return $this;
     }
 
-    public function getContentsAsHTML($contents): string
+    public function getContentsAsHTML($contents)
     {
-        return getContentsHTMLTemplate($contents);
+        getContentsHTMLTemplate($contents);
     }
 }
